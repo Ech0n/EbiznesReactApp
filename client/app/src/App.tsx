@@ -38,6 +38,7 @@ function App() {
     setCart([]);
   };
 
+
   return (
     <Router>
       <div style={{ padding: '20px' }}>
