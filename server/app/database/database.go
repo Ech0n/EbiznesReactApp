@@ -19,5 +19,7 @@ func ConnectDB() {
 }
 
 func Migrate() {
-	DB.AutoMigrate(&models.Product{}, &models.Category{}, &models.Order{}, &models.OrderItem{})
+	if err := DB.AutoMigrate(&models.Product{}, &models.Category{}, &models.Order{}, &models.OrderItem{}); err != nil {
+		log.Fatal("Failed to migrate database:", err)
+	}
 }
