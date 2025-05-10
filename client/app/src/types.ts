@@ -5,6 +5,17 @@ export interface Product {
   categoryID: number;
 }
 
+export interface ProductResponse {
+  ID: number;
+  Name: string;
+  Price: number;
+  CategoryID: number;
+  Category:{
+    ID: number;
+    Name: string;
+  }
+}
+
 export interface OrderItem {
   productId: number;
   quantity: number;

@@ -3,5 +3,9 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "parserOptions": {
+    "project": "./app/tsconfig.json", // Relative to the /client directory
+    "tsconfigRootDir": "process.cwd()", // Needed when config isn't at project root
+  }
 }

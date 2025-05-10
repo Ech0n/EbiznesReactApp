@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { api } from '../api';
-import { Product } from '../types';
+import { Product, ProductResponse } from '../types';
 
 const Products = ({ onAddToCart }: { onAddToCart: (product: Product) => void }) => {
     const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-        api.get<Product[]>('/products')
-            .then((response) => {
-                const mappedProducts: Product[] = response.data.map((item: any) => ({
+        api.get<ProductResponse[]>('/products')
+            .then( (response) => {
+                const mappedProducts: Product[] = response.data.map((item : ProductResponse ) => ({
                     id: item.ID,
                     name: item.Name,
                     price: item.Price,
