@@ -3,7 +3,6 @@ package main
 import (
 	"project/database"
 	"project/routes"
-	"path/filepath"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -23,11 +22,6 @@ func main() {
 	database.Migrate()
 
 	routes.SetupRoutes(e)
-
-	e.GET("/", func(c echo.Context) error {
-		viewPath := filepath.Join("views", "index.html")
-		return c.File(viewPath)
-	})
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
