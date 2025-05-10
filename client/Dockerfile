@@ -17,9 +17,7 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 5173
 
-RUN mkdir -p /var/cache/nginx && chown -R nonroot:nonroot /var/cache/nginx 
-RUN mkdir -p /tmp && chown -R nonroot:nonroot /tmp
-RUN mkdir -p /run && chown -R nonroot:nonroot /run
+RUN mkdir -p /var/cache/nginx /tmp /run && chown -R nonroot:nonroot /var/cache/nginx /run /tmp
 
 USER nonroot
 
